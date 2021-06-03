@@ -118,12 +118,15 @@ export class HomeScreenComponent implements OnInit {
     if (this.selectedPlanet2) {
       this.planetThree = this.planetThree.filter((i) => (this.selectedPlanet2.indexOf(i) === -1))
       this.planetFour = this.planetFour.filter((i) => (this.selectedPlanet2.indexOf(i) === -1))
-      if (this.selectedVehicle1.total_no == 0) {
+      if (this.selectedVehicle1.total_no == 0 || this.selectedVehicle2.total_no == 0) {
         this.vehicleNames = this.vehicleNames.filter(({ total_no }) => total_no != 0);
       }
     }
     if (this.selectedPlanet3) {
       this.planetFour = this.planetFour.filter((i) => (this.selectedPlanet3.indexOf(i) === -1))
+      if (this.selectedVehicle3.total_no == 0) {
+        this.vehicleNames = this.vehicleNames.filter(({ total_no }) => total_no != 0);
+      }
     }
 
 
