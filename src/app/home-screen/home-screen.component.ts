@@ -106,7 +106,6 @@ export class HomeScreenComponent implements OnInit {
     if (this.vehicleNames.length == 0) {
       this.getVehicles()
     }
-
     this.planetTwo = [...this.planets];
     this.planetThree = [...this.planetTwo]
     this.planetFour = [...this.planetThree]
@@ -182,7 +181,10 @@ export class HomeScreenComponent implements OnInit {
     }
   }
   reset() {
-    window.location.reload()
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 
   getToken() {
@@ -225,15 +227,15 @@ export class HomeScreenComponent implements OnInit {
         this.planetFound = "Please try after sometime!"
       }
     },
-    error => {
-      this.isSpinnerDisabled = false
-      console.log(error);
-      if (error.error.message != 'undefined') {
-        this.isNetError = true
-        this.timeTaken= []
-        this.timeTaken.push('NA : Please Check your connection or Try later!') 
-      }
-    })
+      error => {
+        this.isSpinnerDisabled = false
+        console.log(error);
+        if (error.error.message != 'undefined') {
+          this.isNetError = true
+          this.timeTaken = []
+          this.timeTaken.push('NA : Please Check your connection or Try later!')
+        }
+      })
   }
 
 }
