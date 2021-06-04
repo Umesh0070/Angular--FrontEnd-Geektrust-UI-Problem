@@ -32,7 +32,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-3 float">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="selectWidth" appearance="fill">
           <mat-label>Planet1</mat-label>
           <mat-select [disabled]="selectedVehicle1" [(ngModel)]="selectedPlanet1" (ngModelChange)="planetChanged()">
             <mat-option *ngFor='let planet of planets' [value]="planet">
@@ -44,7 +44,7 @@
       </div>
 
       <div class="col-sm-3 float">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="selectWidth" appearance="fill">
           <mat-label>Planet2</mat-label>
           <mat-select [disabled]="!(selectedPlanet1 && selectedVehicle1) || selectedVehicle2" [(ngModel)]="selectedPlanet2"
             (ngModelChange)="planetChanged()">
@@ -55,7 +55,7 @@
         </mat-form-field>
       </div>
       <div class="col-sm-3 float">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="selectWidth" appearance="fill">
           <mat-label>Planet3</mat-label>
           <mat-select [disabled]="!(selectedPlanet2 && selectedVehicle2) || selectedVehicle3" [(ngModel)]="selectedPlanet3"
             (ngModelChange)="planetChanged()">
@@ -66,7 +66,7 @@
         </mat-form-field>
       </div>
       <div class="col-sm-3 float">
-        <mat-form-field appearance="fill">
+        <mat-form-field class="selectWidth" appearance="fill">
           <mat-label>Planet4</mat-label>
           <mat-select [disabled]="!(selectedPlanet3 && selectedVehicle3) || selectedVehicle4" [(ngModel)]="selectedPlanet4"
             (ngModelChange)="planetChanged()">
@@ -79,11 +79,12 @@
     </div>
   </div>
 
+  <!-- vehicle radio group start -->
   <div *ngIf="selectedPlanet1" class="container">
     <div class="row">
       <mat-progress-bar mode="determinate"></mat-progress-bar>
 
-      <div class="col-sm-3">
+      <div class="col-sm-3 radioWidth">
         <mat-card *ngIf="afterSelectPlanet1">
           <mat-radio-group name="vehicleOpt1" [(ngModel)]="selectedVehicle1" [ngModelOptions]="{standalone: true}"
             (ngModelChange)="vehicleChanged1()" aria-label="Select an option">
@@ -99,7 +100,7 @@
       </div>
 
 
-      <div class="col-sm-3" *ngIf='selectedPlanet2'>
+      <div class="col-sm-3 radioWidth" *ngIf='selectedPlanet2'>
         <mat-card *ngIf="afterSelectPlanet2">
           <mat-radio-group name="vehicleOpt2" [(ngModel)]="selectedVehicle2" [ngModelOptions]="{standalone: true}"
             (ngModelChange)="vehicleChanged2()" aria-label="Select an option">
@@ -112,7 +113,7 @@
         <h4 *ngIf="selectedVehicle2" class="vehicleSelect">Your Selected vehicle: {{selectedVehicle2.name}}</h4>
       </div>
 
-      <div class="col-sm-3" *ngIf='selectedPlanet3'>
+      <div class="col-sm-3 radioWidth" *ngIf='selectedPlanet3'>
         <mat-card *ngIf="afterSelectPlanet3">
           <mat-radio-group name="vehicleOpt3" [(ngModel)]="selectedVehicle3" [ngModelOptions]="{standalone: true}"
             (ngModelChange)="vehicleChanged3()" aria-label="Select an option">
@@ -125,7 +126,7 @@
         <h4 *ngIf="selectedVehicle3" class="vehicleSelect">Your Selected vehicle: {{selectedVehicle3.name}}</h4>
       </div>
 
-      <div class="col-sm-3" *ngIf='selectedPlanet4'>
+      <div class="col-sm-3 radioWidth" *ngIf='selectedPlanet4'>
         <mat-card *ngIf="afterSelectPlanet4">
           <mat-radio-group name="vehicleOpt4" [(ngModel)]="selectedVehicle4" [ngModelOptions]="{standalone: true}"
             (ngModelChange)="vehicleChanged4()" aria-label="Select an option">
@@ -149,9 +150,10 @@
   <button type="button" [disabled]='!selectedVehicle4' (click)="findFalcone()" class="btn btn-primary">Find
     Falcone</button>
 </div>
+
+
 <div *ngIf="isFindFalcone" style="text-align: center;margin: 1% 0 0 0;" class="content float">
-  <span class="display-2 result">Found Falcone !</span>
-  <span class="display-6 result alert alert-success" role="alert">Congratulations on Finding Falcone, King Shan is mighty pleased.</span>
+  <span class="display-2 result">Found Falcone !</span> <span class="display-6 result alert alert-success" role="alert">Congratulations on Finding Falcone, King Shan is mighty pleased.</span>
   <div  class="card text-white bg-primary mb-3" style="max-width: 30rem;margin: 0 32% 0;border-radius: 6%;">
     <div class="card-header">
       Mission Success
