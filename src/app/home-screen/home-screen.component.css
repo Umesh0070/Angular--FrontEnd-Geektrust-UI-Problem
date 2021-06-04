@@ -16,7 +16,9 @@
     margin: 16px 0;
     text-align: center;
   }
-
+  .title{
+    margin-left: 5%;
+  }
   p {
     margin: 0;
   }
