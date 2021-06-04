@@ -111,9 +111,9 @@
     .btn {
       width: 15%;
  }
-/* .selectWidth {
-  width: 90%;
-} */
+ .radioWidth{
+  width: 18rem;
+}
     svg#rocket-smoke {
       right: 120px;
       transform: rotate(-15deg);
@@ -122,6 +122,11 @@
   @media screen and (max-width: 992px) {
     .selectWidth {
       width: 80%;
+    }
+  }
+  @media screen and (max-width: 1199px) {
+    .radioWidth{
+      width: 18rem;
     }
   }
   @media screen and (max-width: 575px) {
@@ -141,12 +146,12 @@
 .footer-align {
   padding: 0;
   position: absolute;
-  left: 19%;
+  left: 8%;
   top: 10%;
   
 }
 .footer {
-  bottom: -328px;
+  bottom: -280px;
   height: 20px;
   position: absolute;
   right: 0;
@@ -157,6 +162,9 @@
   align-items: center;
 
 
+}
+.title{
+  margin-left: 17%;
 }
 .radioWidth{
   width: 18rem;
